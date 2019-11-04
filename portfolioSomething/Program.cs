@@ -23,6 +23,8 @@ namespace portfolioThing
             }
 
             Console.WriteLine(input);
+
+            Console.WriteLine("Hej");
         }
     }
 }
