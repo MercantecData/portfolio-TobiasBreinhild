@@ -99,7 +99,7 @@ namespace LibrarySystem
                         Thread.Sleep(1000);
                         Console.Write(".");
                         Thread.Sleep(1000);
-                        Console.WriteLine(".");
+                        Console.Write(".");
                         Thread.Sleep(1000);
                         Console.WriteLine(" ");
                         Console.WriteLine("You are currently borrowing: " + borrowedBook[0]);
