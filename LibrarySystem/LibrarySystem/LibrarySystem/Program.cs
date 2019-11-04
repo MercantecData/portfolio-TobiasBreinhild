@@ -54,17 +54,17 @@ namespace LibrarySystem
 
                         if (borrowBook == "1")
                         {
-                            Console.WriteLine("There you go! You have borrowed " + books[0]);
+                            Console.WriteLine("There you go! You have now borrowed " + books[0]);
                             borrowedBook[0] = books[0];
                         }
                         else if (borrowBook == "2")
                         {
-                            Console.WriteLine("There you go! You have borrowed " + books[1]);
+                            Console.WriteLine("There you go! You have now borrowed " + books[1]);
                             borrowedBook[0] = books[1];
                         }
                         else if (borrowBook == "3")
                         {
-                            Console.WriteLine("There you go! You have borrowed " + books[2]);
+                            Console.WriteLine("There you go! You have now borrowed " + books[2]);
                             borrowedBook[0] = books[2];
                         }
 
@@ -102,7 +102,7 @@ namespace LibrarySystem
                         Console.WriteLine(".");
                         Thread.Sleep(1000);
                         Console.WriteLine(" ");
-                        Console.WriteLine("You have borrowed: " + borrowedBook[0]);
+                        Console.WriteLine("You are currently borrowing: " + borrowedBook[0]);
                         break;
 
                     case "4":
