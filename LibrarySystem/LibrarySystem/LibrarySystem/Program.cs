@@ -54,14 +54,17 @@ namespace LibrarySystem
 
                         if (borrowBook == "1")
                         {
+                            Console.WriteLine("There you go! You have borrowed " + books[0]);
                             borrowedBook[0] = books[0];
                         }
                         else if (borrowBook == "2")
                         {
+                            Console.WriteLine("There you go! You have borrowed " + books[1]);
                             borrowedBook[0] = books[1];
                         }
                         else if (borrowBook == "3")
                         {
+                            Console.WriteLine("There you go! You have borrowed " + books[2]);
                             borrowedBook[0] = books[2];
                         }
 
@@ -103,15 +106,16 @@ namespace LibrarySystem
                         break;
 
                     case "4":
-                        Console.WriteLine("How many days would you like to extend it by?");
+                        Console.WriteLine("How many days would you like to extend it by? It's currently on " + bookBorrowingTime + " days.");
                         Console.WriteLine(" ");
 
                         int extendTime = int.Parse(Console.ReadLine());
                         bookBorrowingTime = bookBorrowingTime + extendTime;
-
-                        Console.WriteLine("The borrow time on " + borrowedBook[0] + " has been extended by " + extendTime + " days!");
                         Console.WriteLine(" ");
-                        Console.WriteLine("You should return " + borrowedBook[0] + " in " + bookBorrowingTime + " days!");
+
+                        Console.WriteLine("The borrow time on '" + borrowedBook[0] + "' has been extended by " + extendTime + " days!");
+                        Console.WriteLine(" ");
+                        Console.WriteLine("You should return '" + borrowedBook[0] + "' in " + bookBorrowingTime + " days!");
                         Console.WriteLine(" ");
                         break;
 
