@@ -43,31 +43,42 @@ namespace LibrarySystem
                 switch (libraryOptions)
                 {
                     case "1":
-                        Console.WriteLine("Which book would you like to borrow?");
-                        Console.WriteLine(" ");
-                        Console.WriteLine("1. Bob and the GoKart");
-                        Console.WriteLine("2. Blood and Gore");
-                        Console.WriteLine("3. Harry Potter and The Very Long Book");
-                        Console.WriteLine(" ");
+                        bool borrowing = true;
 
-                        string borrowBook = Console.ReadLine();
+                        while (borrowing)
+                        {
+                            Console.WriteLine("Which book would you like to borrow?");
+                            Console.WriteLine(" ");
+                            Console.WriteLine("1. Bob and the GoKart");
+                            Console.WriteLine("2. Blood and Gore");
+                            Console.WriteLine("3. Harry Potter and The Very Long Book");
+                            Console.WriteLine(" ");
 
-                        if (borrowBook == "1")
-                        {
-                            Console.WriteLine("There you go! You have now borrowed " + books[0]);
-                            borrowedBook[0] = books[0];
-                        }
-                        else if (borrowBook == "2")
-                        {
-                            Console.WriteLine("There you go! You have now borrowed " + books[1]);
-                            borrowedBook[0] = books[1];
-                        }
-                        else if (borrowBook == "3")
-                        {
-                            Console.WriteLine("There you go! You have now borrowed " + books[2]);
-                            borrowedBook[0] = books[2];
-                        }
+                            string borrowBook = Console.ReadLine();
 
+                            if (borrowBook == "1")
+                            {
+                                Console.WriteLine("There you go! You have now borrowed " + books[0]);
+                                borrowedBook[0] = books[0];
+                                borrowing = false;
+                            }
+                            else if (borrowBook == "2")
+                            {
+                                Console.WriteLine("There you go! You have now borrowed " + books[1]);
+                                borrowedBook[0] = books[1];
+                                borrowing = false;
+                            }
+                            else if (borrowBook == "3")
+                            {
+                                Console.WriteLine("There you go! You have now borrowed " + books[2]);
+                                borrowedBook[0] = books[2];
+                                borrowing = false;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid input");
+                            }
+                        }
                         break;
 
                     case "2":
@@ -110,7 +121,7 @@ namespace LibrarySystem
                         Console.WriteLine(" ");
 
                         int extendTime = int.Parse(Console.ReadLine());
-                        bookBorrowingTime = bookBorrowingTime + extendTime;
+                        bookBorrowingTime += extendTime;
                         Console.WriteLine(" ");
 
                         Console.WriteLine("The borrow time on '" + borrowedBook[0] + "' has been extended by " + extendTime + " days!");
