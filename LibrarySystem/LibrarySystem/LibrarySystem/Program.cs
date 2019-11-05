@@ -55,28 +55,33 @@ namespace LibrarySystem
                             Console.WriteLine(" ");
 
                             string borrowBook = Console.ReadLine();
+                            Console.WriteLine(" ");
 
                             if (borrowBook == "1")
                             {
                                 Console.WriteLine("There you go! You have now borrowed " + books[0]);
                                 borrowedBook[0] = books[0];
+                                bookBorrowingTime = 7;
                                 borrowing = false;
                             }
                             else if (borrowBook == "2")
                             {
                                 Console.WriteLine("There you go! You have now borrowed " + books[1]);
                                 borrowedBook[0] = books[1];
+                                bookBorrowingTime = 7;
                                 borrowing = false;
                             }
                             else if (borrowBook == "3")
                             {
                                 Console.WriteLine("There you go! You have now borrowed " + books[2]);
                                 borrowedBook[0] = books[2];
+                                bookBorrowingTime = 7;
                                 borrowing = false;
                             }
                             else
                             {
                                 Console.WriteLine("Invalid input");
+                                Console.WriteLine(" ");
                             }
                         }
                         break;
@@ -126,20 +131,21 @@ namespace LibrarySystem
                             string extendTime = Console.ReadLine();
                             Console.WriteLine(" ");
 
-                            if (extendTime.Contains(""))
+                            try
                             {
-                                Console.WriteLine("Invalid amount");  //NEED HELP
-                                Console.WriteLine(" ");
+                                Convert.ToInt32(extendTime);
 
-                            }
-                            else if (Convert.ToInt32(extendTime) > 0)
-                            {
                                 bookBorrowingTime += Convert.ToInt32(extendTime);
                                 Console.WriteLine("The borrow time on '" + borrowedBook[0] + "' has been extended by " + extendTime + " days!");
                                 Console.WriteLine(" ");
                                 Console.WriteLine("You should return '" + borrowedBook[0] + "' in " + bookBorrowingTime + " days!");
                                 Console.WriteLine(" ");
                                 borrowTime = false;
+                            }
+                            catch (FormatException)
+                            {
+                                Console.WriteLine("Invalid amount");  //NEED HELP
+                                Console.WriteLine(" ");
                             }
                         }
                         break;
@@ -151,6 +157,7 @@ namespace LibrarySystem
 
                     default:
                         Console.WriteLine("I don't understand?!");
+                        Console.WriteLine(" ");
                         break;
                 }
 
