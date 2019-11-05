@@ -13,11 +13,11 @@ namespace LibrarySystem
             Book horrorBook = new Book();
             Book aVeryLongHarryPotterBook = new Book();
 
-            int bookBorrowingTime = 7;
-
             kidsBook.name = "Bob and the GoKart";
             horrorBook.name = "Blood and Gore";
             aVeryLongHarryPotterBook.name = "Harry Potter and The Very Long Book";
+
+            int bookBorrowingTime = 7;
 
             string[] books = { kidsBook.name, horrorBook.name, aVeryLongHarryPotterBook.name };
 
@@ -123,6 +123,7 @@ namespace LibrarySystem
 
                     case "4":
                         bool borrowTime = true;
+
                         while (borrowTime)
                         {
                             Console.WriteLine("How many days would you like to extend it by? It's currently on " + bookBorrowingTime + " days.");
@@ -144,7 +145,7 @@ namespace LibrarySystem
                             }
                             catch (FormatException)
                             {
-                                Console.WriteLine("Invalid amount");  //NEED HELP
+                                Console.WriteLine("Invalid amount");
                                 Console.WriteLine(" ");
                             }
                         }
