@@ -134,8 +134,6 @@ namespace LibrarySystem
 
                             try
                             {
-                                Convert.ToInt32(extendTime);
-
                                 bookBorrowingTime += Convert.ToInt32(extendTime);
                                 Console.WriteLine("The borrow time on '" + borrowedBook[0] + "' has been extended by " + extendTime + " days!");
                                 Console.WriteLine(" ");
