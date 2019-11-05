@@ -117,17 +117,31 @@ namespace LibrarySystem
                         break;
 
                     case "4":
-                        Console.WriteLine("How many days would you like to extend it by? It's currently on " + bookBorrowingTime + " days.");
-                        Console.WriteLine(" ");
+                        bool borrowTime = true;
+                        while (borrowTime)
+                        {
+                            Console.WriteLine("How many days would you like to extend it by? It's currently on " + bookBorrowingTime + " days.");
+                            Console.WriteLine(" ");
 
-                        int extendTime = int.Parse(Console.ReadLine());
-                        bookBorrowingTime += extendTime;
-                        Console.WriteLine(" ");
+                            string extendTime = Console.ReadLine();
+                            Console.WriteLine(" ");
 
-                        Console.WriteLine("The borrow time on '" + borrowedBook[0] + "' has been extended by " + extendTime + " days!");
-                        Console.WriteLine(" ");
-                        Console.WriteLine("You should return '" + borrowedBook[0] + "' in " + bookBorrowingTime + " days!");
-                        Console.WriteLine(" ");
+                            if (extendTime.Contains(""))
+                            {
+                                Console.WriteLine("Invalid amount");  //NEED HELP
+                                Console.WriteLine(" ");
+
+                            }
+                            else if (Convert.ToInt32(extendTime) > 0)
+                            {
+                                bookBorrowingTime += Convert.ToInt32(extendTime);
+                                Console.WriteLine("The borrow time on '" + borrowedBook[0] + "' has been extended by " + extendTime + " days!");
+                                Console.WriteLine(" ");
+                                Console.WriteLine("You should return '" + borrowedBook[0] + "' in " + bookBorrowingTime + " days!");
+                                Console.WriteLine(" ");
+                                borrowTime = false;
+                            }
+                        }
                         break;
 
                     case "5":
