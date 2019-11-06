@@ -9,18 +9,12 @@ namespace LibrarySystem
 
         public static void LibraryOption()
         {
-            Program.books[0] = "Bob and the GoKart";
-            Program.books[1] = "Blood and Gore";
-            Program.books[2] = "Harry Potter and The Very Long Book";
+            Program.kidsBook.name = "Bob and the GoKart";
+            Program.horrorBook.name = "Blood and Gore";
+            Program.aVeryLongHarryPotterBook.name = "Harry Potter and The Very Long Book";
 
-            Console.WriteLine(" ");
-            Console.WriteLine("1. Borrow a book");
-            Console.WriteLine("2. Return a book");
-            Console.WriteLine("3. Check for borrowed books");
-            Console.WriteLine("4. Extend the borrowing time of a book");
-            Console.WriteLine("5. Exit the Library");
-            Console.WriteLine(" ");
-
+            Console.WriteLine(" \n1. Borrow a book \n2. Return a book \n3. Check for borrowed books \n4. Extend the borrowing time of a book\n5. Exit the Library \n ");
+            
             string libraryOptions = Console.ReadLine();
             Console.WriteLine(" ");
 
@@ -49,7 +43,6 @@ namespace LibrarySystem
 
                 default:
                     Console.WriteLine("I don't understand?!");
-                    Console.WriteLine(" ");
                     break;
             }
         }

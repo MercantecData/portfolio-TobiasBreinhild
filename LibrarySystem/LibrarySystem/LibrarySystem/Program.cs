@@ -8,9 +8,7 @@ namespace LibrarySystem
         public static Book horrorBook = new Book();
         public static Book aVeryLongHarryPotterBook = new Book();
 
-        public static string[] books = { kidsBook.name, horrorBook.name, aVeryLongHarryPotterBook.name };
-
-        public static string[] borrowedBook = { "None" };
+        public static string[] borrowedBook = { "Nothing" };
 
         public static int bookBorrowingTime = 7;
 
@@ -19,9 +17,7 @@ namespace LibrarySystem
         static void Main(string[] args)
         {
 
-            Console.WriteLine(" ");
-            Console.WriteLine("Welcome to the Library! What can I help you with?");
-            Console.WriteLine(" ");
+            Console.WriteLine(" \nWelcome to the Library! What can I help you with? \n");
 
             while (isRunning)
             {

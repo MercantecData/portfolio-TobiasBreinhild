@@ -8,19 +8,19 @@ namespace LibrarySystem
     {
         public static void ReturningBookMethod()
         {
-            if (Program.borrowedBook[0] == Program.books[0])
+            if (Program.borrowedBook[0] == Program.kidsBook.name)
             {
-                Console.WriteLine("You have returned: " + Program.books[0]);
+                Console.WriteLine("You have returned: " + Program.kidsBook.name);
                 Program.borrowedBook[0] = "None";
             }
-            else if (Program.borrowedBook[0] == Program.books[1])
+            else if (Program.borrowedBook[0] == Program.horrorBook.name)
             {
-                Console.WriteLine("You have returned: " + Program.books[1]);
+                Console.WriteLine("You have returned: " + Program.horrorBook.name);
                 Program.borrowedBook[0] = "None";
             }
-            else if (Program.borrowedBook[0] == Program.books[2])
+            else if (Program.borrowedBook[0] == Program.aVeryLongHarryPotterBook.name)
             {
-                Console.WriteLine("You have returned: " + Program.books[2]);
+                Console.WriteLine("You have returned: " + Program.aVeryLongHarryPotterBook.name);
                 Program.borrowedBook[0] = "None";
             }
             else

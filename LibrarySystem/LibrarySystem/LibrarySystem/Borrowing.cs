@@ -24,22 +24,22 @@ namespace LibrarySystem
 
                 if (borrowBook == "1")
                 {
-                    Console.WriteLine("There you go! You have now borrowed " + Program.books[0]);
-                    Program.borrowedBook[0] = Program.books[0];
+                    Console.WriteLine("There you go! You have now borrowed " + Program.kidsBook.name);
+                    Program.borrowedBook[0] = Program.kidsBook.name;
                     Program.bookBorrowingTime = 7;
                     borrowing = false;
                 }
                 else if (borrowBook == "2")
                 {
-                    Console.WriteLine("There you go! You have now borrowed " + Program.books[1]);
-                    Program.borrowedBook[0] = Program.books[1];
+                    Console.WriteLine("There you go! You have now borrowed " + Program.horrorBook.name);
+                    Program.borrowedBook[0] = Program.horrorBook.name;
                     Program.bookBorrowingTime = 7;
                     borrowing = false;
                 }
                 else if (borrowBook == "3")
                 {
-                    Console.WriteLine("There you go! You have now borrowed " + Program.books[2]);
-                    Program.borrowedBook[0] = Program.books[2];
+                    Console.WriteLine("There you go! You have now borrowed " + Program.aVeryLongHarryPotterBook.name);
+                    Program.borrowedBook[0] = Program.aVeryLongHarryPotterBook.name;
                     Program.bookBorrowingTime = 7;
                     borrowing = false;
                 }
