@@ -6,6 +6,6 @@ namespace LibrarySystem
 {
     class Book
     {
-        public string name;
+
     }
 }
