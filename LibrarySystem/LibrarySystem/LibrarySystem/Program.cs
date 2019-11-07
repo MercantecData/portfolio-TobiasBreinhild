@@ -6,7 +6,10 @@ namespace LibrarySystem
     {
         static void Main(string[] args)
         {
-          
+            Library library = new Library();
+
+
+            Console.WriteLine(library.WelcomeMessage());
         }
     }
 }
