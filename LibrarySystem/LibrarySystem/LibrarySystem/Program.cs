@@ -17,7 +17,7 @@ namespace LibrarySystem
         static void Main(string[] args)
         {
 
-            Console.WriteLine(" \nWelcome to the Library! What can I help you with? \n");
+            Console.WriteLine(" \nWelcome to the Library! What can I help you with? \n \nYou are able to borrow one book at a time");
 
             while (isRunning)
             {
