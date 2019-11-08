@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace LibrarySystem
 {
@@ -24,11 +25,12 @@ namespace LibrarySystem
                 {
                     case "1":
                         Console.WriteLine("Which book would you like to borrow?\n \n1. Bob and Bob \n2. Bob and Bob gets married \n3. Bob and Bob's Lifestory \n");
-                        string chooseBook = Console.ReadLine();
                         bool borrowingBook = true;
 
                         while (borrowingBook)
                         {
+                            string chooseBook = Console.ReadLine();
+
                             switch (chooseBook)
                             {
                                 case "1":
@@ -62,11 +64,39 @@ namespace LibrarySystem
                         break;
 
                     case "3":
+                        Console.Write("Let me check what you have borrowed");
+                        Thread.Sleep(1000);
+                        Console.Write(".");
+                        Thread.Sleep(1000);
+                        Console.Write(".");
+                        Thread.Sleep(1000);
+                        Console.WriteLine(".");
+                        Thread.Sleep(1000);
+                        Console.WriteLine(" \nYou are currently borrowing: " + library.borrowedBook[0] + "\n");
 
                         break;
 
                     case "4":
+                        Console.WriteLine("How many days would you like to extend it by? It's currently on " + library.extendBorrowingTime + " days \n");
 
+                        bool isExtending = true;
+
+                        while (isExtending)
+                        {
+
+                            string extendTime = Console.ReadLine();
+
+                            try
+                            {
+                                library.extendBorrowingTime += Convert.ToInt32(extendTime);
+                                Console.WriteLine("You have extended the time on '" + library.borrowedBook[0] + "' to " + library.extendBorrowingTime + " days \n");
+                                isExtending = false;
+                            }
+                            catch (FormatException)
+                            {
+                                Console.WriteLine("Invalid input \n");
+                            }
+                        }
                         break;
 
                     case "5":

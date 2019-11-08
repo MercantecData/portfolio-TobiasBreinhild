@@ -11,6 +11,8 @@ namespace LibrarySystem
 
         public string[] borrowedBook = { "Nothing" };
 
+        public int extendBorrowingTime = 7;
+
         public string WelcomeMessage()
         {
             string welcome = "Welcome to Bob and Bob's Library!";
