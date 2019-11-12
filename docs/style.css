@@ -2,6 +2,25 @@ img {
     width: 40px;
 }
 
-.cat-stuff {
+.catSize {
     width: 130px;
+}
+
+.normalBanana {
+    width: 130px;
+}
+
+div {
+    color: white;
+    background-color:  steelblue;
+    width: 70px;
+    border: 10px solid midnightblue;
+    padding: 50px;
+    margin: 40px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.buttonClass:hover {
+    background-color: orange;
 }
