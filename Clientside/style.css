@@ -2,6 +2,14 @@ img {
     width: 40px;
 }
 
-.cat-stuff {
+.sameSize {
     width: 130px;
+}
+
+div {
+    background-color:  cyan;
+    width: 450;
+    border: 40px solid blue;
+    padding: 50px;
+    margin: 40px;
 }
