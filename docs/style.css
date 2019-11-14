@@ -10,8 +10,8 @@ body {
     width: 130px;
 }
 
-.normalBanana {
-    width: 130px;
+.banana {
+    width: 260px;
 }
 
 .buttonClass {
@@ -29,27 +29,45 @@ body {
     background-color: orange;
 }
 
-.item1 { grid-area: header; }
-.item2 { grid-area: menu; }
-.item3 { grid-area: left; }
-.item4 { grid-area: middle; }
-.item5 { grid-area: right; }
-.item6 { grid-area: footer;}
+.item1 { 
+    grid-area: header; 
+    background-color: red;
+}
+.item2 { 
+    grid-area: menu; 
+    background-color: greenyellow;
+}
+.item3 { 
+    grid-area: left; 
+    background-color: hotpink;
+}
+.item4 { 
+    grid-area: middle; 
+    background-color: black;
+}
+.item5 { 
+    grid-area: right;
+    background-color: yellow;
+}
+.item6 { 
+    grid-area: footer;
+    background-color: purple;
+}
 
 .grid-container {
-  display: grid;
-  grid-template-areas:
-    'header header header header header header header'
-    'menu left left middle middle right right'
-    'menu footer footer footer footer footer footer';
-  grid-gap: 10px;
-  background-color: midnightblue;
-  padding: 10px;
+    display: grid;
+    grid-template-areas:
+        'header header header header header header header'
+        'menu left left middle middle right right'
+        'menu footer footer footer footer footer footer';
+    grid-gap: 10px;
+    background-color: midnightblue;
+    padding: 10px;
 }
 
 .grid-container > div {
-  background-color: lightskyblue;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 30px;
+    background-color: lightskyblue; 
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
 }
