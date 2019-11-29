@@ -1,0 +1,72 @@
+Database dokumentation
+
+Jeg startede ud med at lave en database:
+
+
+CREATE DATABASE Workplace
+
+
+Derefter tilføjede jeg alle tabeller der skulle være i databasen:
+
+
+CREATE TABLE Employee(
+    	employee_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	first_name varchar(256),
+   	last_name varchar(256),
+    	e_username varchar(256),
+    	e_password varchar(256),
+    	email varchar(256),
+	titleID INT,
+	FOREIGN KEY (titleID) REFERENCES titles(title_id)
+);
+
+CREATE TABLE Department(
+	Department_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	depatment_name varchar(256)
+);
+
+CREATE TABLE DepartmentManager(
+	dpmanager_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	employeeID INT,
+    	departmentID INT,
+    	FOREIGN KEY (employeeID) REFERENCES Employee(employee_id),
+	FOREIGN KEY (departmentID) REFERENCES Department(department_id)
+);
+
+CREATE TABLE DepartmentEmployee(
+	dpemployee_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	employeeID INT,
+    	departmentID INT,
+    	FOREIGN KEY (employeeID) REFERENCES Employee(employee_id),
+	FOREIGN KEY (departmentID) REFERENCES Department(department_id)
+);
+
+CREATE TABLE Salaries(
+	salary_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	employeeID INT,
+    	departmentID INT,
+    	FOREIGN KEY (employeeID) REFERENCES Employee(employee_id),
+	FOREIGN KEY (departmentID) REFERENCES Department(department_id),
+	amount_work INT(11),
+	amount_money INT(11)
+);
+
+CREATE TABLE Titles(
+	title_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	title_name varchar(256)
+);
+
+
+Så blev der fyldt data i tabellerne med INSERT INTO, eksempel:
+
+INSERT INTO employee (employee_id, first_name, last_name, e_username, e_password, email, titleID)
+VALUES ('', 'Allan', 'Bob', 'AL', 'LAN', 'allan@gmail.com', '1');
+
+Og til sidst lavede jeg et VIEW med INNER JOINS, der skulle vise de fleste ting omkring employees:
+
+CREATE VIEW EmployeeStats AS
+	SELECT employee.first_name, employee.last_name, titles.title_name, department.department_name, salaries.amount_work, salaries.amount_money,
+	FROM (((employee
+	INNER JOIN department ON employee.employee_id = department.Department_id)
+	INNER JOIN titles ON employee.employee_id = titles.title_id)
+	INNER JOIN salaries ON employee.employee_id = salaries.salary_id);
