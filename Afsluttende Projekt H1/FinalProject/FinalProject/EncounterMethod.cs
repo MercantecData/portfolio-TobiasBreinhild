@@ -28,7 +28,7 @@ namespace FinalProject
             {
                 Console.WriteLine("You've reached a new POI");
             }
-            else if (randomEncounterOdds == 5)
+            else if (randomEncounterOdds >= 5)
             {
                 Console.WriteLine("You encountered nothing!");
             }
