@@ -28,8 +28,10 @@ namespace FinalProject
                         {
                             isChoosing = false;
                         }
-
-                        Console.WriteLine("\nWhich direction would you like to go next? \n");
+                        else
+                        {
+                            Console.WriteLine("\nWhich direction would you like to go next? \n");
+                        }
                     }
                     else if (input == "straight" || input == "s")
                     {
@@ -40,8 +42,11 @@ namespace FinalProject
                         {
                             isChoosing = false;
                         }
+                        else
+                        {
+                            Console.WriteLine("\nWhich direction would you like to go next? \n");
+                        }
 
-                        Console.WriteLine("\nWhich direction would you like to go next? \n");
                     }
                     else if (input == "right" || input == "r")
                     {
@@ -52,8 +57,10 @@ namespace FinalProject
                         {
                             isChoosing = false;
                         }
-
-                        Console.WriteLine("\nWhich direction would you like to go next? \n");
+                        else
+                        {
+                            Console.WriteLine("\nWhich direction would you like to go next? \n");
+                        }
                     }
                     else
                     {
