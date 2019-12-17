@@ -6,8 +6,9 @@ namespace FinalProject
 {
     class DirectionMethod
     {
-        public static void Game()
+        public void Game()
         {
+            EncounterMethod Encounters = new EncounterMethod();
             bool isRunning = true;
             while(isRunning)
             {
@@ -21,27 +22,46 @@ namespace FinalProject
                     if (input == "left" || input == "l")
                     {
                         Console.WriteLine("You went left");
-                        EncounterMethod.RandomEncounter();
-                        Console.WriteLine("\nWhere would you like to go next? \n");
+                        Encounters.RandomEncounter();
+
+                        if (Encounters.playerHP < 0)
+                        {
+                            isChoosing = false;
+                        }
+
+                        Console.WriteLine("\nWhich direction would you like to go next? \n");
                     }
                     else if (input == "straight" || input == "s")
                     {
                         Console.WriteLine("You went straight");
-                        EncounterMethod.RandomEncounter();
-                        Console.WriteLine("\nWhere would you like to go next? \n");
+                        Encounters.RandomEncounter();
+
+                        if (Encounters.playerHP < 0)
+                        {
+                            isChoosing = false;
+                        }
+
+                        Console.WriteLine("\nWhich direction would you like to go next? \n");
                     }
                     else if (input == "right" || input == "r")
                     {
                         Console.WriteLine("You went right");
-                        EncounterMethod.RandomEncounter();
-                        Console.WriteLine("\nWhere would you like to go next? \n");
+                        Encounters.RandomEncounter();
+
+                        if (Encounters.playerHP < 0)
+                        {
+                            isChoosing = false;
+                        }
+
+                        Console.WriteLine("\nWhich direction would you like to go next? \n");
                     }
                     else
                     {
                         Console.WriteLine("You didn't move!");
-                        Console.WriteLine("\nWhere would you like to go next? \n");
+                        Console.WriteLine("\nWhich direction would you like to go next? \n");
                     }
                 }
+                isRunning = false;
             }
         }
     }

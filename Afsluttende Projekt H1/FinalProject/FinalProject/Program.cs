@@ -7,6 +7,7 @@ namespace FinalProject
     {
         static void Main(string[] args)
         {
+            DirectionMethod directionMethod = new DirectionMethod();
             bool isRunning = true;
 
             Console.WriteLine("Welcome to The Great Adventure of I don't know!");
@@ -30,7 +31,8 @@ namespace FinalProject
                     Console.WriteLine(".");
                     Thread.Sleep(1000);
                     Console.WriteLine(" ");
-                    DirectionMethod.Game();
+                    directionMethod.Game();
+                    isRunning = false;
                 }
                 else if (input == "2")
                 {
