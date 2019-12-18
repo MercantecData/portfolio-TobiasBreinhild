@@ -147,40 +147,39 @@ namespace FinalProject
             Console.WriteLine("Hey, my name is " + npc.name + " and I am a " + npc.job + "! \n ");
             Console.WriteLine("Would you like to 'talk' to the " + npc.job + " or 'buy' something from the " + npc.job + "?");
 
+            string npcDecision = Console.ReadLine();
             switch (npc.job)
             {
                 case "Farmer":
-                    string farmerConversation = Console.ReadLine();
-                    if (farmerConversation == "buy")
+                    if (npcDecision == "buy")
                     {
                         Console.WriteLine("Sorry, I don't have anything you can buy. (Coming Soon!)");
                     }
-                    else if (farmerConversation == "talk")
+                    else if (npcDecision == "talk")
                     {
                         Console.WriteLine("Have you seen my sheep? It likes to run away sometimes!");
                     }
                     break;
 
                 case "Musician":
-                    string musicianConversation = Console.ReadLine();
-                    if (musicianConversation == "buy")
+                    if (npcDecision == "buy")
                     {
                         Console.WriteLine("Sorry, I don't have anything you can buy. (Coming Soon!)");
                     }
-                    else if (musicianConversation == "talk")
+                    else if (npcDecision == "talk")
                     {
                         Console.Beep(523, 125);
-                        Thread.Sleep(250);
+                        Thread.Sleep(200);
                         Console.Beep(392, 125);
-                        Thread.Sleep(250);
+                        Thread.Sleep(200);
                         Console.Beep(330, 125);
-                        Thread.Sleep(250);
+                        Thread.Sleep(200);
                         Console.Beep(440, 125);
                         Thread.Sleep(125);
                         Console.Beep(494, 125);
                         Thread.Sleep(125);
                         Console.Beep(466, 125);
-                        Thread.Sleep(42);
+                        Thread.Sleep(10);
                         Console.Beep(440, 125);
                         Thread.Sleep(125);
 
@@ -189,103 +188,95 @@ namespace FinalProject
                     break;
 
                 case "Baker":
-                    string bakerConversation = Console.ReadLine();
-                    if (bakerConversation == "buy")
+                    if (npcDecision == "buy")
                     {
                         Console.WriteLine("Sorry, I don't have anything you can buy. (Coming Soon!)");
                     }
-                    else if (bakerConversation == "talk")
+                    else if (npcDecision == "talk")
                     {
                         Console.WriteLine("Let's get this bread!");
                     }
                     break;
 
                 case "Comedian":
-                    string comedianConversation = Console.ReadLine();
-                    if (comedianConversation == "buy")
+                    if (npcDecision == "buy")
                     {
                         Console.WriteLine("Sorry, I don't have anything you can buy. (Coming Soon!)");
                     }
-                    else if (comedianConversation == "talk")
+                    else if (npcDecision == "talk")
                     {
                         Console.WriteLine("Want to hear a joke? Me neither!");
                     }
                     break;
 
                 case "Lumberjack":
-                    string lumberjackConversation = Console.ReadLine();
-                    if (lumberjackConversation == "buy")
+                    if (npcDecision == "buy")
                     {
                         Console.WriteLine("Sorry, I don't have anything you can buy. (Coming Soon!)");
                     }
-                    else if (lumberjackConversation == "talk")
+                    else if (npcDecision == "talk")
                     {
                         Console.WriteLine("I like to chop down trees!");
                     }
                     break;
 
                 case "Blacksmith":
-                    string blacksmithConversation = Console.ReadLine();
-                    if (blacksmithConversation == "buy")
+                    if (npcDecision == "buy")
                     {
                         Console.WriteLine("Sorry, I don't have anything you can buy. (Coming Soon!)");
                     }
-                    else if (blacksmithConversation == "talk")
+                    else if (npcDecision == "talk")
                     {
                         Console.WriteLine("I have made a lot of stuff in my time. Once I made a 2 meter long sword!");
                     }
                     break;
 
                 case "Cook":
-                    string cookConversation = Console.ReadLine();
-                    if (cookConversation == "buy")
+                    if (npcDecision == "buy")
                     {
                         Console.WriteLine("Sorry, I don't have anything you can buy. (Coming Soon!)");
                     }
-                    else if (cookConversation == "talk")
+                    else if (npcDecision == "talk")
                     {
                         Console.WriteLine("Food is SO good! I like it very much!");
                     }
                     break;
 
                 case "Butcher":
-                    string butcherConversation = Console.ReadLine();
-                    if (butcherConversation == "buy")
+                    if (npcDecision == "buy")
                     {
                         Console.WriteLine("Sorry, I don't have anything you can buy. (Coming Soon!)");
                     }
-                    else if (butcherConversation == "talk")
+                    else if (npcDecision == "talk")
                     {
                         Console.WriteLine("Choppy Chop Chop!");
                     }
                     break;
 
                 case "Artist":
-                    string artistConversation = Console.ReadLine();
-                    if (artistConversation == "buy")
+                    if (npcDecision == "buy")
                     {
                         Console.WriteLine("Sorry, I don't have anything you can buy. (Coming Soon!)");
                     }
-                    else if (artistConversation == "talk")
+                    else if (npcDecision == "talk")
                     {
                         Console.WriteLine("It's relaxing to sit here and paint the nature. Very refreshing!");
                     }
                     break;
 
                 case "Armorer":
-                    string armorerConversation = Console.ReadLine();
-                    if (armorerConversation == "buy")
+                    if (npcDecision == "buy")
                     {
                         Console.WriteLine("Sorry, I don't have anything you can buy. (Coming Soon!)");
                     }
-                    else if (armorerConversation == "talk")
+                    else if (npcDecision == "talk")
                     {
                         Console.WriteLine("This armor is too heavy. Should have made a lighter set!");
                     }
                     break;
 
                 default:
-                    Console.WriteLine("ERROR: CODE NOT GOOD");
+                    Console.WriteLine("ERROR: CODE NOT GOOD. CODE NEEDS ATTENTION");
                     break;
             }
         }
