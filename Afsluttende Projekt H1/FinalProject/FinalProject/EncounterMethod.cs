@@ -33,10 +33,79 @@ namespace FinalProject
             else if (randomEncounterOdds == 4)
             {
                 Console.WriteLine("You've reached a new POI");
+                POIEncounter();
             }
             else if (randomEncounterOdds >= 5)
             {
                 Console.WriteLine("You encountered nothing!");
+            }
+        }
+
+        public void POIEncounter()
+        {
+            bool isExploring = true;
+
+            string[] names = { "TownsVille", "SumTown", "LakeVille", "ForestVille", "MountainVille" };
+
+            int[] citizens = { 20, 40, 60, 80, 100 };
+
+            string[] shops = { "Weapons'n'Stuff", "Buy my things!", "Just Food", "Heavy Clothes", "That Random One" };
+
+            Random random = new Random();
+
+            int randomPOI = random.Next(0, 5);
+
+            PointOfInterest pointOfInterest = new PointOfInterest(names[randomPOI], citizens[randomPOI], shops[randomPOI]);
+
+            Console.WriteLine("Welcome to '" + pointOfInterest.name + "'! There is a total of " + pointOfInterest.amountOfCitizens + " citizens and '" + pointOfInterest.shop + "' is the shop we got here! Enjoy your stay! \n ");
+            Console.WriteLine("What would you like to do in " + pointOfInterest.name + "? \n1. Visit the shop \n2. Talk to a random citizen \n3. Leave " + pointOfInterest.name);
+
+            while (isExploring)
+            {
+                string poiDecision = Console.ReadLine();
+
+                if (poiDecision == "1")
+                {
+                    bool isShopping = true;
+                    Console.WriteLine("Welcome to " + pointOfInterest.shop + "! What can I do for you today? \n ");
+                    Console.WriteLine("1. Buy \n2. Sell \n3. Leave \n ");
+
+                    while(isShopping)
+                    {
+                        string shopDecision = Console.ReadLine();
+
+                        if (shopDecision == "1")
+                        {
+                            Console.WriteLine("What do you want to buy? (Coming soon!)");
+                        }
+                        else if (shopDecision == "2")
+                        {
+                            Console.WriteLine("What do you have to sell? (Coming soon!)");
+                        }
+                        else if (shopDecision == "3")
+                        {
+                            Console.WriteLine("Alright! See ya!");
+                            isShopping = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You sadly can't do that in my shop!");
+                        }
+                    }
+                }
+                else if (poiDecision == "2")
+                {
+                    Console.WriteLine("Suh dude! \n ");
+                }
+                else if (poiDecision == "3")
+                {
+                    Console.WriteLine("Thanks for visiting! \n ");
+                    isExploring = false;
+                }
+                else
+                {
+                    Console.WriteLine("You can't do that here! \n ");
+                }
             }
         }
 
@@ -90,8 +159,11 @@ namespace FinalProject
 
                             if (playerHP <= 0)
                             {
+                                Console.Clear();
                                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                                Console.WriteLine("YOU DIED!");
+                                Console.WriteLine(" \n \n \n \n \n \n \n \n \n \n \n \n \n                                                      YOU DIED! \n \n \n \n \n \n \n \n \n \n \n \n \n \n ");
+                                Console.ForegroundColor = ConsoleColor.Gray;
+                                Console.ReadLine();
                                 isBattling = false;
                                 isDeciding = false;
                             }
