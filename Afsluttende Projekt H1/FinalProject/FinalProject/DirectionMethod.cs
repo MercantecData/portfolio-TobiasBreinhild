@@ -24,7 +24,7 @@ namespace FinalProject
                         Console.WriteLine("You went left");
                         Encounters.RandomEncounter();
 
-                        if (Encounters.playerHP < 0)
+                        if (Encounters.playerHP <= 0)
                         {
                             isChoosing = false;
                         }
@@ -38,7 +38,7 @@ namespace FinalProject
                         Console.WriteLine("You went straight");
                         Encounters.RandomEncounter();
 
-                        if (Encounters.playerHP < 0)
+                        if (Encounters.playerHP <= 0)
                         {
                             isChoosing = false;
                         }
@@ -53,7 +53,7 @@ namespace FinalProject
                         Console.WriteLine("You went right");
                         Encounters.RandomEncounter();
 
-                        if (Encounters.playerHP < 0)
+                        if (Encounters.playerHP <= 0)
                         {
                             isChoosing = false;
                         }

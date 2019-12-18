@@ -42,7 +42,7 @@ namespace FinalProject
 
         public void EnemyEncounter()
         {
-            bool isBattling = true;
+            bool isDeciding = true;
 
             string[] difficulties = { "Very Easy", "Easy", "Medium", "Hard", "Very Hard", "Insane", "Deadly", "Impossible"};
 
@@ -52,51 +52,79 @@ namespace FinalProject
 
             Random random = new Random();
 
-            int randomDifficulty = random.Next(0, 9);
+            int randomDifficulty = random.Next(0, 8);
 
             Enemy enemy = new Enemy(difficulties[randomDifficulty], hpAmounts[randomDifficulty], dmgAmounts[randomDifficulty]);
 
-            Console.WriteLine("This enemy is '" + enemy.difficulty + "' difficulty! Are you sure you want to attack it? \n1. Yes \n2. No \n ");
+            Console.WriteLine("This enemy is '" + enemy.difficulty + "' difficulty which has " + enemy.enemyHP + " HP and can do " + enemy.enemyDMG + " damage! \nAre you sure you want to attack it? \n1. Yes \n2. No \n ");
 
-            string yesNo = Console.ReadLine();
+            
 
-            Console.WriteLine(" \nLet's do this! \n ");
-
-            while (isBattling)
+            while (isDeciding)
             {
-                if(yesNo == "1")
-                {
-                    enemy.enemyHP -= playerDMG;
-                    Console.WriteLine("You hit the enemy for " + playerDMG + " damage! \nIt's at " + enemy.enemyHP + " HP!");
-                    playerHP -= enemy.enemyDMG;
-                    Console.WriteLine("The enemy hit you for " + enemy.enemyDMG + " damage! \nYou are at " + playerHP + " HP!");
+                bool isBattling = true;
 
-                    if(enemy.enemyHP < 0)
-                    {
-                        Console.WriteLine("You defeated the enemy! Congrats!");
-                        isBattling = false;
-                    }
-                    else if(playerHP < 0)
-                    {
-                        Console.ForegroundColor = ConsoleColor.DarkRed;
-                        Console.WriteLine("YOU DIED!");
-                        isBattling = false;
-                    }
-                }
-                else if (yesNo == "2")
-                {
-                    int luckyEscape = random.Next(1, 3);
-                    if(luckyEscape == 1)
-                    {
-                        Console.WriteLine("You got away!");
-                        isBattling = false;
-                    }
-                    else if(luckyEscape == 2)
-                    {
-                        Console.WriteLine("You couldn't get away! \n ");
-                        playerHP -= enemy.enemyDMG;
-                        Console.WriteLine("The enemy hit you for " + enemy.enemyDMG + " damage! \nYou are at " + playerHP + " HP!");
+                string yesNo = Console.ReadLine();
 
+                Console.WriteLine(" \nLet's do this! \n ");
+
+                while (isBattling)
+                {
+
+                    if (yesNo == "1" || yesNo == "yes" || yesNo == "y")
+                    {
+                        enemy.enemyHP -= playerDMG;
+                        Console.WriteLine("You hit the enemy for " + playerDMG + " damage! \nIt's at " + enemy.enemyHP + " HP!");
+
+                        if (enemy.enemyHP <= 0)
+                        {
+                            Console.WriteLine("You defeated the enemy! Congrats!");
+                            isBattling = false;
+                            isDeciding = false;
+                        }
+                        else if (enemy.enemyHP > 0)
+                        {
+
+                            playerHP -= enemy.enemyDMG;
+                            Console.WriteLine("The enemy hit you for " + enemy.enemyDMG + " damage! \nYou are at " + playerHP + " HP!");
+
+                            if (playerHP <= 0)
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine("YOU DIED!");
+                                isBattling = false;
+                                isDeciding = false;
+                            }
+                        }
+                    }
+                    else if (yesNo == "2" || yesNo == "no" || yesNo == "n")
+                    {
+                        int luckyEscape = random.Next(1, 3);
+                        if (luckyEscape == 1)
+                        {
+                            Console.WriteLine("You got away!");
+                            isBattling = false;
+                            isDeciding = false;
+                        }
+                        else if (luckyEscape == 2)
+                        {
+                            Console.WriteLine("You couldn't get away! \n ");
+                            playerHP -= enemy.enemyDMG;
+                            Console.WriteLine("The enemy hit you for " + enemy.enemyDMG + " damage! \nYou are at " + playerHP + " HP!");
+                            if (playerHP <= 0)
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine("YOU DIED!");
+                                isBattling = false;
+                                isDeciding = false;
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid Input!");
+                        isBattling = false;
                     }
                 }
             }
