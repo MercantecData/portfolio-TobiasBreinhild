@@ -24,6 +24,7 @@ namespace FinalProject
             else if (randomEncounterOdds == 2)
             {
                 Console.WriteLine("You found an item!");
+                ItemEncounter();
             }
             else if (randomEncounterOdds == 3)
             {
@@ -38,6 +39,45 @@ namespace FinalProject
             else if (randomEncounterOdds >= 5)
             {
                 Console.WriteLine("You encountered nothing!");
+            }
+        }
+
+        public void ItemEncounter()
+        {
+            string[] itemNames = { "Apple", "Armor" };
+
+            string[] weaponNames = { "Sword", "Stick" };
+
+            string[] rarities = { "Common", "Uncommon", "Rare", "Very Rare", "Epic", "Legendary", "Heroric" };
+
+            int[] prices = { 50, 100, 250, 500, 1000, 5000, 10000};
+
+            int[] sellValues = { 25, 50, 125, 250, 500, 2500, 5000};
+
+            string[] weaponOrNot = { "CAN", "CAN'T!" };
+
+            int[] damageAmounts = { 0, 25, 100, 200, 300, 400, 500, 1000 };
+
+            Random random = new Random();
+
+            int randomItem = random.Next(0, 2);
+            int randomStats = random.Next(0, 7);
+
+            Item item = new Item(itemNames[randomItem], rarities[randomStats], prices[randomStats], sellValues[randomStats], weaponOrNot[1], damageAmounts[0]);
+
+            Item weapon = new Item(weaponNames[randomItem], rarities[randomStats], prices[randomStats], sellValues[randomStats], weaponOrNot[0], damageAmounts[randomStats]);
+
+            int randomPickup = random.Next(0, 2);
+
+            if(randomPickup == 0)
+            {
+                Console.WriteLine(" \nYou picked up a " + item.rarity + " " + item.name + "! You " + item.weapon + " use this as a weapon!" );
+                Console.WriteLine("This would normally cost you " + item.price + " coins, so you're lucky to get it for free! \nYou can also choose to sell it later at a shop for " + item.sellValue + " coins!");
+            }
+            else if(randomPickup == 1)
+            {
+                Console.WriteLine(" \nYou picked up a " + weapon.rarity + " " + weapon.name + "! You " + weapon.weapon + " use this as a weapon! It will do " + weapon.damage + " damage to enemies!");
+                Console.WriteLine("This would normally cost you " + weapon.price + " coins, so you're lucky to get it for free! \nYou can also choose to sell it later at a shop for " + weapon.sellValue + " coins!");
             }
         }
 
@@ -161,7 +201,7 @@ namespace FinalProject
                             {
                                 Console.Clear();
                                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                                Console.WriteLine(" \n \n \n \n \n \n \n \n \n \n \n \n \n                                                      YOU DIED! \n \n \n \n \n \n \n \n \n \n \n \n \n \n ");
+                                Console.WriteLine(" \n \n \n \n \n \n \n \n \n \n \n \n \n \n                                                        YOU DIED! \n \n \n \n \n \n \n \n \n \n \n \n \n \n ");
                                 Console.ForegroundColor = ConsoleColor.Gray;
                                 Console.ReadLine();
                                 isBattling = false;
@@ -185,8 +225,11 @@ namespace FinalProject
                             Console.WriteLine("The enemy hit you for " + enemy.enemyDMG + " damage! \nYou are at " + playerHP + " HP!");
                             if (playerHP <= 0)
                             {
+                                Console.Clear();
                                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                                Console.WriteLine("YOU DIED!");
+                                Console.WriteLine(" \n \n \n \n \n \n \n \n \n \n \n \n \n \n                                                        YOU DIED! \n \n \n \n \n \n \n \n \n \n \n \n \n \n ");
+                                Console.ForegroundColor = ConsoleColor.Gray;
+                                Console.ReadLine();
                                 isBattling = false;
                                 isDeciding = false;
                             }
