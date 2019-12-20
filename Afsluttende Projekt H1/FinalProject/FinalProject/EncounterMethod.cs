@@ -7,7 +7,7 @@ namespace FinalProject
 {
     class EncounterMethod
     {
-        public int playerHP = 500;
+        public int playerHP = 1000;
         public int playerDMG = 50;
 
         public void RandomEncounter()
@@ -44,6 +44,8 @@ namespace FinalProject
 
         public void ItemEncounter()
         {
+            bool isEquipping = true;
+
             string[] itemNames = { "Apple", "Armor" };
 
             string[] weaponNames = { "Sword", "Stick" };
@@ -54,7 +56,7 @@ namespace FinalProject
 
             int[] sellValues = { 25, 50, 125, 250, 500, 2500, 5000};
 
-            string[] weaponOrNot = { "CAN", "CAN'T!" };
+            string[] weaponOrNot = { "CAN", "CAN'T" };
 
             int[] damageAmounts = { 0, 25, 100, 200, 300, 400, 500, 1000 };
 
@@ -78,6 +80,26 @@ namespace FinalProject
             {
                 Console.WriteLine(" \nYou picked up a " + weapon.rarity + " " + weapon.name + "! You " + weapon.weapon + " use this as a weapon! It will do " + weapon.damage + " damage to enemies!");
                 Console.WriteLine("This would normally cost you " + weapon.price + " coins, so you're lucky to get it for free! \nYou can also choose to sell it later at a shop for " + weapon.sellValue + " coins!");
+                Console.WriteLine(" \nWould you like to switch your weapon out with this one? \nYes? \nNo? \n ");
+
+                while (isEquipping)
+                {
+                    string weaponEquip = Console.ReadLine();
+
+                    if (weaponEquip == "yes")
+                    {
+                        playerDMG = weapon.damage;
+                        isEquipping = false;
+                    }
+                    else if (weaponEquip == "no")
+                    {
+                        isEquipping = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("That's not an option!");
+                    }
+                }
             }
         }
 
