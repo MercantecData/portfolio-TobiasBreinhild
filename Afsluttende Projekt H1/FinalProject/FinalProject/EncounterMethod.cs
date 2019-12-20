@@ -8,7 +8,12 @@ namespace FinalProject
     class EncounterMethod
     {
         public int playerHP = 1000;
-        public int playerDMG = 50;
+        public int playerDMG = 500;
+        public int playerLevel = 1;
+        public int playerXPAmount = 0;
+        public int[] levelXPAmount = { 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000 };
+
+        public int i = 0;
 
         public void RandomEncounter()
         {
@@ -181,11 +186,13 @@ namespace FinalProject
 
             int[] dmgAmounts = { 10, 15, 25, 40, 60, 90, 150, 500};
 
+            int[] xpAmounts = { 50, 100, 200, 300, 400, 500, 1000, 10000};
+
             Random random = new Random();
 
             int randomDifficulty = random.Next(0, 8);
 
-            Enemy enemy = new Enemy(difficulties[randomDifficulty], hpAmounts[randomDifficulty], dmgAmounts[randomDifficulty]);
+            Enemy enemy = new Enemy(difficulties[randomDifficulty], hpAmounts[randomDifficulty], dmgAmounts[randomDifficulty], xpAmounts[randomDifficulty]);
 
             Console.WriteLine("This enemy is '" + enemy.difficulty + "' difficulty which has " + enemy.enemyHP + " HP and can do " + enemy.enemyDMG + " damage! \nAre you sure you want to attack it? \n1. Yes \n2. No \n ");
 
@@ -194,6 +201,8 @@ namespace FinalProject
             while (isDeciding)
             {
                 bool isBattling = true;
+
+                bool isCalculating = true;
 
                 string yesNo = Console.ReadLine();
 
@@ -206,10 +215,78 @@ namespace FinalProject
                     {
                         enemy.enemyHP -= playerDMG;
                         Console.WriteLine("You hit the enemy for " + playerDMG + " damage! \nIt's at " + enemy.enemyHP + " HP!");
+                        Thread.Sleep(500);
 
                         if (enemy.enemyHP <= 0)
                         {
                             Console.WriteLine("You defeated the enemy! Congrats!");
+
+                            if (enemy.difficulty == "Very Easy")
+                            {
+                                Console.WriteLine("You gained " + enemy.xpAmount + " XP!");
+                                playerXPAmount += enemy.xpAmount;
+                            }
+                            else if (enemy.difficulty == "Easy")
+                            {
+                                Console.WriteLine("You gained " + enemy.xpAmount + " XP!");
+                                playerXPAmount += enemy.xpAmount;
+                            }
+                            else if (enemy.difficulty == "Medium")
+                            {
+                                Console.WriteLine("You gained " + enemy.xpAmount + " XP!");
+                                playerXPAmount += enemy.xpAmount;
+                            }
+                            else if (enemy.difficulty == "Hard")
+                            {
+                                Console.WriteLine("You gained " + enemy.xpAmount + " XP!");
+                                playerXPAmount += enemy.xpAmount;
+                            }
+                            else if (enemy.difficulty == "Very Hard")
+                            {
+                                Console.WriteLine("You gained " + enemy.xpAmount + " XP!");
+                                playerXPAmount += enemy.xpAmount;
+                            }
+                            else if (enemy.difficulty == "Insane")
+                            {
+                                Console.WriteLine("You gained " + enemy.xpAmount + " XP!");
+                                playerXPAmount += enemy.xpAmount;
+                            }
+                            else if (enemy.difficulty == "Deadly")
+                            {
+                                Console.WriteLine("You gained " + enemy.xpAmount + " XP!");
+                                playerXPAmount += enemy.xpAmount;
+                            }
+                            else if (enemy.difficulty == "Impossible")
+                            {
+                                Console.WriteLine("You gained " + enemy.xpAmount + " XP!");
+                                playerXPAmount += enemy.xpAmount;
+                            }
+
+                            if (playerLevel == 10)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("You've already reached MAX level!");
+                                Console.ForegroundColor = ConsoleColor.Gray;
+                                isBattling = false;                                
+                            }
+                            else
+                            {
+                                while (isCalculating)
+                                {
+                                    if (playerXPAmount > levelXPAmount[i])
+                                    {
+                                        playerLevel += 1;
+                                        Console.ForegroundColor = ConsoleColor.Green;
+                                        Console.WriteLine("You are now level " + playerLevel + "!");
+                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                        i += 1;
+                                    }
+                                    else
+                                    {
+                                        isCalculating = false;
+                                    }
+                                }
+                            }
                             isBattling = false;
                             isDeciding = false;
                         }
@@ -218,6 +295,7 @@ namespace FinalProject
 
                             playerHP -= enemy.enemyDMG;
                             Console.WriteLine("The enemy hit you for " + enemy.enemyDMG + " damage! \nYou are at " + playerHP + " HP!");
+                            Thread.Sleep(500);
 
                             if (playerHP <= 0)
                             {
